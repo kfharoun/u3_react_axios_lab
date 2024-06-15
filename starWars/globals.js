@@ -1,0 +1,5 @@
+export const BASE_URL = 'https://swapi.dev/api/'
+export const STARSHIP_PATH = 'https://swapi.dev/api/starships/'
+export const FILM_PATH = 'https://swapi.dev/api/films/'
+export const PEOPLE_PATH = 'https://swapi.dev/api/people/'
+export const PLANET_PATH = 'https://swapi.dev/api/planets/'
