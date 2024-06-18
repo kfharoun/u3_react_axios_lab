@@ -2,6 +2,7 @@ import { STARSHIP_PATH } from "../../globals"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import '../App'
+import { useNavigate } from "react-router-dom"
 
 export default function StarshipsList () {
 
@@ -16,6 +17,13 @@ export default function StarshipsList () {
         }
         getStarships()
     }, [])
+
+    let navigate = useNavigate()
+
+    const showShip = (key) => {
+        navigate(`${key}`)
+      }
+
 //    console.log(starships)
     if (starships.length === 0) {
         return <h1>Starships taking off...</h1>
@@ -23,12 +31,9 @@ export default function StarshipsList () {
         return (
             <div className="pathInfo">
                 {
-                    starships.map((starship) => (
-                        <div key = {starship.name} className="pathDesc">
+                    starships.map((starship, key) => (
+                        <div key={key} onClick={()=>showShip(key)} className="pathDesc">
                             <h2>{starship.name}</h2>
-                            <p>Model: {starship.model}</p>
-                            <p>Manufactured by {starship.manufacturer}</p>
-                            <p>Class: {starship.starship_class}</p>
                             </div>
                     ))
                 }

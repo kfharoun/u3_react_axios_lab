@@ -1,6 +1,7 @@
 import { PEOPLE_PATH } from "../../globals"
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function PeopleList () {
 
@@ -15,24 +16,22 @@ export default function PeopleList () {
         }
         getPeople()
     }, [])
-   console.log(people)
+   //console.log(people)
+   let navigate = useNavigate()
 
+   const showPeople = (key) => {
+       navigate(`${key}`)
+     }
 
     if (people.length === 0) {
-        return <h1>Finding actors...</h1>
+        return <h1>Finding characters...</h1>
     } else {
         return (
             <div className="pathInfo">
                 {
-                    people.map((person) => (
-                        <div key = {person.name} className="pathDesc">
+                    people.map((person, key) => (
+                        <div key={key} onClick={()=>showPeople(key)} className="pathDesc">
                             <h2>{person.name}</h2>
-                            <p>Height: {person.height}cm</p>
-                            <p>Hair: {person.hair_color}</p>
-                            <p>Skin tone: {person.skin_color}</p>
-                            <p>Eye color: {person.eye_color}</p>
-                            <p>Birth year: {person.birth_year}</p>
-                            <p>Gender: {person.gender}</p>
                             </div>
                     ))
                 }
