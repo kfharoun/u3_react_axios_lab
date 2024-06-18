@@ -84,14 +84,14 @@ body{
   line-height: 3.5em;
   position: relative;
   font-size: 0.6em;
-  padding: 25%;
+  padding: 30%;
   max-width: 100%;
   max-height: 10%;
 }
 
 @keyframes starFloatText {
   0% {
-  transform: translateY(90%) perspective(500px) rotateX(20deg);
+  transform: translateY(50%) perspective(500px) rotateX(30deg);
   }
   100% {
   transform: translateY(-290%) perspective(500px) rotateX(20deg);
@@ -100,7 +100,7 @@ body{
   
   @-webkit-keyframes starFloatText {
   0% {
-  transform: translateY(90%) perspective(500px) rotateX(20deg);
+  transform: translateY(90%) perspective(500px) rotateX(30deg);
   }
   100% {
   transform: translateY(-290%) perspective(500px) rotateX(20deg);
